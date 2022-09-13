@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment">
+    tools:context=".fragments.LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_layout"
@@ -64,17 +64,16 @@
             >
         </com.google.android.material.button.MaterialButton>
 
-        <TextView
-            android:id="@+id/esqueci_minha_senha"
+        <Button
+            android:id="@+id/esqueci_minha_senha_button"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/esqueci_minha_senha"
-            android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@+id/buttonLogin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:autoLink="web"
-            ></TextView>
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -83,17 +82,16 @@
         android:layout_height="wrap_content"
 
         app:layout_constraintBottom_toBottomOf="parent">
-        <TextView
-            android:id="@+id/cadastre_se"
+        <Button
+            android:id="@+id/signup_button"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/signup_text"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            ></TextView>
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

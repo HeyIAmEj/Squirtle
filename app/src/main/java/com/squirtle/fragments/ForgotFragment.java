@@ -1,19 +1,19 @@
-package com.squirtle;
+package com.squirtle.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
-import com.squirtle.databinding.FragmentFirstBinding;
+import com.squirtle.databinding.FragmentForgotBinding;
 
-public class FirstFragment extends Fragment {
+public class ForgotFragment extends Fragment {
 
-    private FragmentFirstBinding binding;
+    private FragmentForgotBinding binding;
 
     @Override
     public View onCreateView(
@@ -21,7 +21,7 @@ public class FirstFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentFirstBinding.inflate(inflater, container, false);
+        binding = FragmentForgotBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -29,11 +29,11 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonLogin.setOnClickListener(new View.OnClickListener() {
+        binding.buttonLoginForgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                Toast.makeText(view.getContext(), "Esqueci Senha na AWS", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

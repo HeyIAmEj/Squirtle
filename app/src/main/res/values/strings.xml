@@ -2,18 +2,24 @@
     <string name="app_name">Squirtle</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">Squirtle - Login</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="login_fragment_label">Login</string>
+    <string name="signup_fragment_label">Cadastro</string>
+    <string name="forgot_fragment_label">Esqueci minha Senha</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-
-
     <string name="email_text_hint">Email</string>
     <string name="senha_text_hint">Senha</string>
-    <string name="esqueci_minha_senha">Esqueci minha senha</string>
+    <string name="confirmar_senha_text_hint">Confirmar Senha</string>
+
     <string name="login_text">Login</string>
+    <string name="cadastrar_text">Cadastrar</string>
     <string name="signup_text">Não tem conta? Criar Conta</string>
+
+    <string name="esqueci_minha_senha">Esqueci minha senha</string>
+    <string name="redefinir_senha">Redefinir Senha</string>
+    <string name="nova_senha_text_hint">Nova Senha</string>
+    <string name="nova_confirmar_senha_text_hint">Confirmar Nova Senha</string>
+
+
 </resources>

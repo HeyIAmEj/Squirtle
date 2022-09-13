@@ -1,19 +1,21 @@
-package com.squirtle;
+package com.squirtle.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.squirtle.databinding.FragmentSecondBinding;
+import com.squirtle.R;
+import com.squirtle.databinding.FragmentSignupBinding;
 
-public class SecondFragment extends Fragment {
+public class SignupFragment extends Fragment {
 
-    private FragmentSecondBinding binding;
+    private FragmentSignupBinding binding;
 
     @Override
     public View onCreateView(
@@ -21,7 +23,7 @@ public class SecondFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentSecondBinding.inflate(inflater, container, false);
+        binding = FragmentSignupBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -29,11 +31,11 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
+        binding.buttonLoginSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
+                Toast.makeText(view.getContext(), "Cadastro na AWS", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
