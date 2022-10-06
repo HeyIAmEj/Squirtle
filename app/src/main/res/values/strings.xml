@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">Squirtle</string>
     <string name="action_settings">Settings</string>
+    <string name="squirtle_api">https://squirtleapi.herokuapp.com</string>
+    <string name="squirtle_api_endpoint">/api/v1</string>
+    <string name="squirtle_api_endpoint_login">/login</string>
+    <string name="squirtle_api_endpoint_usuario">/usuario/%d</string>
+
+
     <!-- Strings used for fragments for navigation -->
-    <string name="login_fragment_label">Login</string>
-    <string name="signup_fragment_label">Cadastro</string>
-    <string name="forgot_fragment_label">Esqueci minha Senha</string>
+    <string name="login_fragment_label">Squirtle - Login</string>
+    <string name="signup_fragment_label">Squirtle - Cadastro</string>
+    <string name="forgot_fragment_label">Squirtle - Esqueci minha Senha</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
@@ -20,6 +26,15 @@
     <string name="redefinir_senha">Redefinir Senha</string>
     <string name="nova_senha_text_hint">Nova Senha</string>
     <string name="nova_confirmar_senha_text_hint">Confirmar Nova Senha</string>
+
+    <string name="tentando_login">Tentando fazer Login...</string>
+
+<!--MODULES-->
+    <string name="modules_toolbar_title">Squirtle</string>
+
+
+<!--    Dispositivos-->
+    <string name="dispositivos_toolbar_title">Meus dispositivos</string>
 
 
 </resources>

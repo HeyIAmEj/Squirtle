@@ -2,6 +2,7 @@ package com.squirtle.activities;
 
 import android.os.Bundle;
 
+import com.auth0.android.jwt.JWT;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,8 @@ import com.squirtle.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 

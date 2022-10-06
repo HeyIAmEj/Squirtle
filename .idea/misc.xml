@@ -11,9 +11,15 @@
         <entry key="..\:/Users/User/Desktop/Git/squirtle/app/src/main/res/layout/fragment_signup.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/User/Desktop/Git/squirtle/app/src/main/res/menu/menu_main.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.296" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.30842391304347827" />
+        <entry key="app/src/main/res/layout/activity_dispositivos.xml" value="0.17119565217391305" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/activity_modules.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/adapter.xml" value="0.17119565217391305" />
+        <entry key="app/src/main/res/layout/adapter_dispositivos.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/content_dispositivos.xml" value="0.17119565217391305" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.30842391304347827" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.30842391304347827" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.18" />
       </map>
     </option>
   </component>
