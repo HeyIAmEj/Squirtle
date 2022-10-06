@@ -7,8 +7,50 @@
     android:layout_gravity="center_vertical"
     tools:context=".fragments.SignupFragment">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nomeLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/nome_text_hint"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/sobrenomeLayout">
+
+        <EditText
+            android:id="@+id/nomeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/sobrenomeLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/sobrenome_text_hint"
+        app:layout_constraintTop_toBottomOf="@+id/nomeLayout"
+        app:layout_constraintBottom_toBottomOf="@+id/emailLayout">
+
+        <EditText
+            android:id="@+id/sobrenomeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailLayoutSignup"
+            android:id="@+id/emailLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -16,11 +58,11 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="32dp"
             android:hint="@string/email_text_hint"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/senhaLayoutSignup">
+            app:layout_constraintTop_toBottomOf="@+id/sobrenomeLayout"
+            app:layout_constraintBottom_toTopOf="@+id/senhaLayout">
 
             <EditText
-                android:id="@+id/emailTextSignup"
+                android:id="@+id/emailText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textWebEmailAddress|textEmailAddress"/>
@@ -28,7 +70,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/senhaLayoutSignup"
+            android:id="@+id/senhaLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +78,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="32dp"
             android:hint="@string/senha_text_hint"
-            app:layout_constraintTop_toBottomOf="@+id/emailLayoutSignup">
+            app:layout_constraintTop_toBottomOf="@+id/emailLayout">
 
             <EditText
                 android:id="@+id/senhaTextSignup"
@@ -47,7 +89,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/senhaLayoutSignupConfirm"
+        android:id="@+id/senhaLayoutConfirm"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,10 +97,10 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="32dp"
         android:hint="@string/confirmar_senha_text_hint"
-        app:layout_constraintTop_toBottomOf="@+id/senhaLayoutSignup">
+        app:layout_constraintTop_toBottomOf="@+id/senhaLayout">
 
         <EditText
-            android:id="@+id/senhaTextSignupConfirm"
+            android:id="@+id/senhaTextConfirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
@@ -66,12 +108,12 @@
     </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonLoginSignup"
+            android:id="@+id/buttonLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cadastrar_text"
             android:layout_marginTop="30dp"
-            app:layout_constraintTop_toBottomOf="@+id/senhaLayoutSignupConfirm"
+            app:layout_constraintTop_toBottomOf="@+id/senhaLayoutConfirm"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             >

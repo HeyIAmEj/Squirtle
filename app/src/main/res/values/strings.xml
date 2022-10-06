@@ -4,6 +4,7 @@
     <string name="squirtle_api">https://squirtleapi.herokuapp.com</string>
     <string name="squirtle_api_endpoint">/api/v1</string>
     <string name="squirtle_api_endpoint_login">/login</string>
+    <string name="squirtle_api_endpoint_signup">/usuario</string>
     <string name="squirtle_api_endpoint_usuario">/usuario/%d</string>
 
 
@@ -14,6 +15,8 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <string name="nome_text_hint">Nome</string>
+    <string name="sobrenome_text_hint">Sobrenome</string>
     <string name="email_text_hint">Email</string>
     <string name="senha_text_hint">Senha</string>
     <string name="confirmar_senha_text_hint">Confirmar Senha</string>

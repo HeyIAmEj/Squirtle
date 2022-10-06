@@ -15,12 +15,16 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.squirtle.R;
+import com.squirtle.activities.MainActivity;
 import com.squirtle.activities.ModulesActivity;
+import com.squirtle.databinding.ActivityMainBinding;
 import com.squirtle.databinding.FragmentLoginBinding;
 import com.squirtle.model.Usuario;
 import com.squirtle.model.UsuarioLogado;
@@ -42,6 +46,8 @@ public class LoginFragment extends Fragment {
     private String jwtLogin;
     private UsuarioLogado usuarioLogado;
 
+    private TextInputLayout emailLayout;
+    private TextInputLayout senhaLayout;
     private EditText emailField;
     private EditText senhaField;
     private Button buttonLogin;
@@ -65,12 +71,17 @@ public class LoginFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
         buttonLogin = view.findViewById(R.id.buttonLogin);
         Button signup_button = view.findViewById(R.id.signup_button);
         Button esqueci_minha_senha_button = view.findViewById(R.id.esqueci_minha_senha_button);
 
         emailField = view.findViewById(R.id.emailText);
         senhaField = view.findViewById(R.id.senhaText);
+        emailLayout = view.findViewById(R.id.emailLayout);
+        senhaLayout = view.findViewById(R.id.senhaLayout);
+
         emailField.setText("teste@teste.com");
         senhaField.setText("123");
         progressBar = view.findViewById(R.id.progressBar);
@@ -171,20 +182,22 @@ public class LoginFragment extends Fragment {
     }
 
     public void disableForm(){
-        emailField.setVisibility(View.GONE);
-        senhaField.setVisibility(View.GONE);
-        buttonLogin.setVisibility(View.GONE);
+        emailLayout.setEnabled(false);
+        senhaLayout.setEnabled(false);
+        buttonLogin.setEnabled(false);
         othersLayout.setVisibility(View.GONE);
-        tryingText.setVisibility(View.VISIBLE);
+
+//        tryingText.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.VISIBLE);
     }
 
     public void enableForm(){
-        emailField.setVisibility(View.VISIBLE);
-        senhaField.setVisibility(View.VISIBLE);
-        buttonLogin.setVisibility(View.VISIBLE);
+        emailLayout.setEnabled(true);
+        senhaLayout.setEnabled(true);
+        buttonLogin.setEnabled(true);
         othersLayout.setVisibility(View.VISIBLE);
-        tryingText.setVisibility(View.GONE);
+
+//        tryingText.setVisibility(View.GONE);
         progressBar.setVisibility(View.GONE);
     }
 
