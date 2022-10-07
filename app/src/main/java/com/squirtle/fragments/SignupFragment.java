@@ -2,7 +2,7 @@ package com.squirtle.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.transition.TransitionInflater;
+import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +14,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.squirtle.R;
-import com.squirtle.activities.ModulesActivity;
+import com.squirtle.activities.MainActivity;
 import com.squirtle.databinding.FragmentSignupBinding;
 import com.squirtle.utils.JWTUtils;
 
@@ -35,13 +35,18 @@ public class SignupFragment extends Fragment {
 
     private FragmentSignupBinding binding;
 
-    private TextInputLayout emailLayout;
-    private TextInputLayout senhaLayout;
-    private EditText emailField;
-    private EditText senhaField;
-    private Button buttonLogin;
+    private TextInputLayout nomeLayout, sobrenomeLayout, emailLayout, senhaLayout, senhaLayoutConfirm ;
+    private EditText nomeText, sobrenomeText, emailText, senhaText, senhaTextConfirm;
+    private Button buttonSignup;
+
     private TextView tryingText;
     private ProgressBar progressBar;
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+    }
 
     @Override
     public View onCreateView(
@@ -50,6 +55,26 @@ public class SignupFragment extends Fragment {
     ) {
 
         binding = FragmentSignupBinding.inflate(inflater, container, false);
+
+        nomeText = binding.nomeText;
+        sobrenomeText = binding.sobrenomeText;
+        emailText = binding.emailText;
+        senhaText = binding.senhaText;
+        senhaTextConfirm = binding.senhaTextConfirm;
+        nomeLayout = binding.nomeLayout;
+        sobrenomeLayout = binding.sobrenomeLayout;
+        emailLayout = binding.emailLayout;
+        senhaLayout = binding.senhaLayout;
+        senhaLayoutConfirm = binding.senhaLayoutConfirm;
+        buttonSignup = binding.buttonSignup;
+
+        nomeText.setText("teste");
+        sobrenomeText.setText("teste");
+        emailText.setText("teste");
+        senhaText.setText("teste");
+        senhaTextConfirm.setText("teste");
+
+
         return binding.getRoot();
 
     }
@@ -57,27 +82,20 @@ public class SignupFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        buttonLogin = view.findViewById(R.id.buttonLogin);
-        Button signup_button = view.findViewById(R.id.signup_button);
-        Button esqueci_minha_senha_button = view.findViewById(R.id.esqueci_minha_senha_button);
-
-//        emailField = view.findViewById(R.id.emailText);
-//        senhaField = view.findViewById(R.id.senhaText);
-        emailLayout = view.findViewById(R.id.emailLayout);
-        senhaLayout = view.findViewById(R.id.senhaLayout);
-
-//        emailField.setText("teste@teste.com");
-//        senhaField.setText("123");
-        progressBar = view.findViewById(R.id.progressBar);
-        tryingText = view.findViewById(R.id.tentando_login_text);
-
-//        binding.buttonLoginSignup.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                Toast.makeText(view.getContext(), "Cadastro na AWS", Toast.LENGTH_SHORT).show();
-//                signup();
-//            }
-//        });
+        buttonSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String senha = senhaText.getText().toString();
+                String confirmaSenha = senhaTextConfirm.getText().toString();
+                if (senha.equals(confirmaSenha)){
+                    Toast.makeText(view.getContext(), "Vamos lhe cadastrar!", Toast.LENGTH_SHORT).show();
+                    signup();
+                }else{
+                    senhaText.setError("Verifique sua senha!");
+                    senhaTextConfirm.setError("Verifique sua senha!");
+                }
+            }
+        });
     }
 
     @Override
@@ -86,22 +104,25 @@ public class SignupFragment extends Fragment {
         binding = null;
     }
 //
-//    public void signup(){
-//        try {
-//            HttpAsync httpAsync = new HttpAsync(new URL(
-//                    getString(R.string.squirtle_api) + getString(R.string.squirtle_api_endpoint) +
-//                            getString(R.string.squirtle_api_endpoint_signup)));
-//            httpAsync.setDebug(true);
-//            httpAsync.addParam("email", emailField.getText());
-//            httpAsync.addParam("senha", senhaField.getText());
-//            httpAsync.post(new FutureCallback() {
-//                @Override
-//                public void onBeforeExecute() {
-//                    disableForm();
-//                }
-//
-//                @Override
-//                public void onAfterExecute() {
+    public void signup(){
+        try {
+            HttpAsync httpAsync = new HttpAsync(new URL(
+                    getString(R.string.squirtle_api) + getString(R.string.squirtle_api_endpoint) +
+                            getString(R.string.squirtle_api_endpoint_signup)));
+            httpAsync.setDebug(true);
+//            httpAsync.addParam("id", "1");
+            httpAsync.addParam("nome", nomeText.getText().toString());
+            httpAsync.addParam("sobrenome", sobrenomeText.getText().toString());
+            httpAsync.addParam("email", emailText.getText().toString());
+            httpAsync.addParam("senha", senhaText.getText().toString());
+            httpAsync.post(new FutureCallback() {
+                @Override
+                public void onBeforeExecute() {
+                    disableForm();
+                }
+
+                @Override
+                public void onAfterExecute() {
 //                    if(usuarioLogado == null){
 //                        Toast.makeText(getContext(), "Usuário não encontrado!", Toast.LENGTH_SHORT).show();
 //                        emailField.setError("Verifique seu email!");
@@ -112,58 +133,63 @@ public class SignupFragment extends Fragment {
 //                        intent.putExtra("usuarioLogado", usuarioLogado);
 //                        startActivity(intent);
 //                    }
-//                    enableForm();
-//                }
-//
-//                @Override
-//                public void onSuccess(int responseCode, Object object) {
-//                    switch (responseCode) {
-//                        case 200:
-//                            JSONObject jsonObject = (JSONObject) object;
-//                            try {
-//                                jwtLogin = (jsonObject.getJSONObject("response").getString("jwt"));
-//                                System.out.println(jwtLogin);
-//                                usuarioLogado = JWTUtils.setUserJWT(getContext(), jwtLogin);
-//                            } catch (Exception e) {
-//                                e.printStackTrace();
-//                            }
-//                            System.out.println();
-//                            break;
-//                        default:
-//                            Toast.makeText(getContext(), "Response code não tratado", Toast.LENGTH_SHORT).show();
-//                            break;
-//                    }
-//                }
-//
-//                @Override
-//                public void onFailure(Exception exception) {
-//                    Toast.makeText(getContext(), "Falha no request", Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    public void disableForm(){
-//        emailLayout.setEnabled(false);
-//        senhaLayout.setEnabled(false);
-//        buttonLogin.setEnabled(false);
-//        othersLayout.setVisibility(View.GONE);
-//
-////        tryingText.setVisibility(View.VISIBLE);
-//        progressBar.setVisibility(View.VISIBLE);
-//    }
-//
-//    public void enableForm(){
-//        emailLayout.setEnabled(true);
-//        senhaLayout.setEnabled(true);
-//        buttonLogin.setEnabled(true);
-//        othersLayout.setVisibility(View.VISIBLE);
-//
-////        tryingText.setVisibility(View.GONE);
+                    Toast.makeText(getContext(), "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    startActivity(intent);
+                    enableForm();
+                }
+
+                @Override
+                public void onSuccess(int responseCode, Object object) {
+                    switch (responseCode) {
+                        case 200:
+                            JSONObject jsonObject = (JSONObject) object;
+                            try {
+                                System.out.println("chegou");
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            System.out.println();
+                            break;
+                        case 500:
+                            // usuario com id já cadastrado
+                            break;
+                        default:
+                            Toast.makeText(getContext(), "Response code não tratado", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                }
+
+                @Override
+                public void onFailure(Exception exception) {
+                    Toast.makeText(getContext(), "Falha no request", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void disableForm(){
+        nomeLayout.setEnabled(false);
+        sobrenomeLayout.setEnabled(false);
+        emailLayout.setEnabled(false);
+        senhaLayout.setEnabled(false);
+        senhaLayoutConfirm.setEnabled(false);
+        buttonSignup.setEnabled(false);
+    }
+
+    public void enableForm(){
+        nomeLayout.setEnabled(true);
+        sobrenomeLayout.setEnabled(true);
+        emailLayout.setEnabled(true);
+        senhaLayout.setEnabled(true);
+        senhaLayoutConfirm.setEnabled(true);
+        buttonSignup.setEnabled(true);
+
+//        tryingText.setVisibility(View.GONE);
 //        progressBar.setVisibility(View.GONE);
-//    }
+    }
 
 }

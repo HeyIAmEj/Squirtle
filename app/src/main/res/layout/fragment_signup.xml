@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginHorizontal="32dp"
     android:layout_gravity="center_vertical"
     tools:context=".fragments.SignupFragment">
 
@@ -12,9 +13,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
         android:hint="@string/nome_text_hint"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/sobrenomeLayout">
@@ -32,9 +31,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
         android:hint="@string/sobrenome_text_hint"
         app:layout_constraintTop_toBottomOf="@+id/nomeLayout"
         app:layout_constraintBottom_toBottomOf="@+id/emailLayout">
@@ -54,9 +51,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="32dp"
             android:hint="@string/email_text_hint"
             app:layout_constraintTop_toBottomOf="@+id/sobrenomeLayout"
             app:layout_constraintBottom_toTopOf="@+id/senhaLayout">
@@ -74,14 +69,12 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="32dp"
             android:hint="@string/senha_text_hint"
             app:layout_constraintTop_toBottomOf="@+id/emailLayout">
 
             <EditText
-                android:id="@+id/senhaTextSignup"
+                android:id="@+id/senhaText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword" />
@@ -93,11 +86,10 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
         android:hint="@string/confirmar_senha_text_hint"
-        app:layout_constraintTop_toBottomOf="@+id/senhaLayout">
+        app:layout_constraintTop_toBottomOf="@+id/senhaLayout"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSignup">
 
         <EditText
             android:id="@+id/senhaTextConfirm"
@@ -108,8 +100,8 @@
     </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonLogin"
-            android:layout_width="wrap_content"
+            android:id="@+id/buttonSignup"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cadastrar_text"
             android:layout_marginTop="30dp"

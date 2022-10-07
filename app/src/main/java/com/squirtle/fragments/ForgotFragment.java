@@ -1,5 +1,6 @@
 package com.squirtle.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.squirtle.R;
@@ -17,6 +19,12 @@ import com.squirtle.databinding.FragmentForgotBinding;
 public class ForgotFragment extends Fragment {
 
     private FragmentForgotBinding binding;
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+    }
 
     @Override
     public View onCreateView(

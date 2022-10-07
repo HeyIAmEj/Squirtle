@@ -19,10 +19,10 @@
         <entry key="app/src/main/res/layout/adapter.xml" value="0.17119565217391305" />
         <entry key="app/src/main/res/layout/adapter_dispositivos.xml" value="0.33" />
         <entry key="app/src/main/res/layout/content_dispositivos.xml" value="0.17119565217391305" />
-        <entry key="app/src/main/res/layout/content_main.xml" value="0.30842391304347827" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.30842391304347827" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/fragment_signup.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/fragment_signup.xml" value="0.16" />
       </map>
     </option>
   </component>
