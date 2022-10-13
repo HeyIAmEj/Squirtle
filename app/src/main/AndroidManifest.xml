@@ -17,10 +17,17 @@
         android:theme="@style/Theme.Squirtle"
         tools:targetApi="31">
         <activity
+            android:name=".activities.NovoDispositivo"
+            android:parentActivityName=".activities.DispositivosActivity"
+            android:exported="false">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activities.DispositivosActivity" />
+        </activity>
+        <activity
             android:name=".activities.ModulesActivity"
             android:exported="false" />
         <activity
             android:name=".activities.DispositivosActivity"
+            android:parentActivityName=".activities.ModulesActivity"
             android:exported="false" />
         <activity
             android:name=".activities.MainActivity"

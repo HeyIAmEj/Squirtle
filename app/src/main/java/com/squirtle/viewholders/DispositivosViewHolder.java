@@ -12,7 +12,7 @@ import com.squirtle.R;
 
 public class DispositivosViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView dispositivo_nome, dispositivo_status;
+    public TextView dispositivo_nome, dispositivo_status, dispositivo_descricao;
     public CardView dispositivo_view;
     public ImageView dispositivo_icon;
 
@@ -21,6 +21,7 @@ public class DispositivosViewHolder extends RecyclerView.ViewHolder {
         dispositivo_view = itemView.findViewById(R.id.dispositivo_view);
         dispositivo_icon = itemView.findViewById(R.id.dispositivo_icon);
         dispositivo_nome = itemView.findViewById(R.id.dispositivo_nome);
+        dispositivo_descricao = itemView.findViewById(R.id.dispositivo_descricao);
         dispositivo_status = itemView.findViewById(R.id.dispositivo_status);
     }
 

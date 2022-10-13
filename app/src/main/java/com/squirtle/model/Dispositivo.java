@@ -6,6 +6,7 @@ public class Dispositivo {
     private int id;
 
     private String nome;
+    private String descricao;
 
     private String status;
 
@@ -14,6 +15,10 @@ public class Dispositivo {
     private String wifi_ssid;
 
     private String wifi_pass;
+
+
+    private String tipo_solo;
+    private String tempo_bomba;
 
     private String sensor1;
     private String sensor2;
@@ -139,6 +144,51 @@ public class Dispositivo {
     }
 
     public void setSensor5(String sensor5) {
+        this.sensor5 = sensor5;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        if(descricao == "null"){
+            descricao = "Sem descrição";
+        }
+        this.descricao = descricao;
+
+    }
+
+    public String getTipo_solo() {
+        return tipo_solo;
+    }
+
+    public void setTipo_solo(String tipo_solo) {
+        this.tipo_solo = tipo_solo;
+    }
+
+    public String gettempo_bomba() {
+        return tempo_bomba;
+    }
+
+    public void settempo_bomba(String tempo_bomba) {
+        this.tempo_bomba = tempo_bomba;
+    }
+
+    public Dispositivo(int id, String nome, String descricao, String status, String icone, String wifi_ssid, String wifi_pass, String tipo_solo, String tempo_bomba, String sensor1, String sensor2, String sensor3, String sensor4, String sensor5) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.status = status;
+        this.icone = icone;
+        this.wifi_ssid = wifi_ssid;
+        this.wifi_pass = wifi_pass;
+        this.tipo_solo = tipo_solo;
+        this.tempo_bomba = tempo_bomba;
+        this.sensor1 = sensor1;
+        this.sensor2 = sensor2;
+        this.sensor3 = sensor3;
+        this.sensor4 = sensor4;
         this.sensor5 = sensor5;
     }
 }

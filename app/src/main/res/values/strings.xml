@@ -6,6 +6,8 @@
     <string name="squirtle_api_endpoint_login">/login</string>
     <string name="squirtle_api_endpoint_signup">/usuario</string>
     <string name="squirtle_api_endpoint_usuario">/usuario/%d</string>
+    <string name="squirtle_api_endpoint_dispositivo">/dispositivo</string>
+
 
 
     <!-- Strings used for fragments for navigation -->
@@ -32,12 +34,29 @@
 
     <string name="tentando_login">Tentando fazer Login...</string>
 
-<!--MODULES-->
+    <!--MODULES-->
     <string name="modules_toolbar_title">Squirtle</string>
 
 
-<!--    Dispositivos-->
+    <!--    Dispositivos-->
     <string name="dispositivos_toolbar_title">Meus dispositivos</string>
 
+    <!--    Novo Dispositivo-->
+    <string name="novodispositivo_toolbar_title">Novo Dispositivo</string>
+    <string name="novodispositivo_name">Nome do Dispositivo</string>
+    <string name="novodispositivo_descricao">Descrição</string>
+    <string name="novodispositivo_status">Status</string>
+    <string name="novodispositivo_wifi_ssid">SSID do Wifi</string>
+    <string name="novodispositivo_wifi_pass">Senha do Wifi</string>
+    <string name="novodispositivo_tipo_solo">Tipo de Solo</string>
+    <string name="novodispositivo_tipo_plantacao">Tipo de Plantação</string>
 
+
+<!--    Tipo de Solos-->
+    <string-array name="novodispositivo_tipo_solo_menu">
+        <item>Arenoso</item>
+        <item>Argiloso</item>
+        <item>Humoso</item>
+        <item>Cálcario</item>
+    </string-array>
 </resources>

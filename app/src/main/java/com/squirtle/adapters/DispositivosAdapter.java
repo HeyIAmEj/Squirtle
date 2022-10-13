@@ -1,6 +1,7 @@
 package com.squirtle.adapters;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +53,32 @@ public class DispositivosAdapter extends RecyclerView.Adapter<DispositivosViewHo
         Dispositivo dispositivoItem = dispositivoFullList.get(position);
         holder.dispositivo_nome.setText(String.format("%s", dispositivoItem.getNome()));
         holder.dispositivo_status.setText(String.format("%s", dispositivoItem.getStatus()));
-//        holder.dispositivo_icon.set(String.format("%s", dispositivoItem.getIcone()));
+        holder.dispositivo_descricao.setText(String.format("%s", dispositivoItem.getDescricao()));
+        int icon;
+        switch (dispositivoItem.getIcone()){
+            case "sun":
+                icon = R.drawable.ic_sun;
+                break;
+            case "moon":
+                icon = R.drawable.ic_moon;
+                break;
+            case "ice":
+                icon = R.drawable.ic_ice;
+                break;
+            case "cloud":
+                icon = R.drawable.ic_cloud;
+                break;
+            case "leaf":
+                icon = R.drawable.ic_leaf;
+                break;
+            case "plant":
+                icon = R.drawable.ic_plant;
+                break;
+            default:
+                icon = R.drawable.ic_device;
+                break;
+        }
+        holder.dispositivo_icon.setImageResource(icon);
 
         holder.dispositivo_view.setOnClickListener(new View.OnClickListener() {
             @Override

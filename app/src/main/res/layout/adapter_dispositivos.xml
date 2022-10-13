@@ -4,11 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="5dp"
 
-    android:layout_marginEnd="8dp"
-    android:layout_marginBottom="5dp"
+    android:layout_marginVertical="7dp"
+    android:layout_marginHorizontal="8dp"
+
     android:elevation="2dp"
     android:foregroundGravity="center_horizontal"
     android:orientation="vertical"
@@ -22,7 +21,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/dispositivo_layout"
@@ -37,9 +37,10 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:padding="5dp"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/ic_device"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 />
 
             <TextView
@@ -57,6 +58,20 @@
                 />
 
             <TextView
+                android:id="@+id/dispositivo_descricao"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:text="Descrição do dispositivo"
+                android:textSize="12sp"
+                android:maxLines="1"
+                android:layout_marginStart="5dp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@id/dispositivo_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dispositivo_nome"
+                />
+
+            <TextView
                 android:id="@+id/dispositivo_status"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -66,7 +81,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/dispositivo_icon"
-                app:layout_constraintTop_toBottomOf="@id/dispositivo_nome" />
+                app:layout_constraintTop_toBottomOf="@id/dispositivo_descricao" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

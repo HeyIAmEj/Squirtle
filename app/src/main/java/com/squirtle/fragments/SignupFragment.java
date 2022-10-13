@@ -70,9 +70,9 @@ public class SignupFragment extends Fragment {
 
         nomeText.setText("teste");
         sobrenomeText.setText("teste");
-        emailText.setText("teste");
-        senhaText.setText("teste");
-        senhaTextConfirm.setText("teste");
+        emailText.setText("teste@teste.com");
+        senhaText.setText("123");
+        senhaTextConfirm.setText("123");
 
 
         return binding.getRoot();
@@ -88,7 +88,6 @@ public class SignupFragment extends Fragment {
                 String senha = senhaText.getText().toString();
                 String confirmaSenha = senhaTextConfirm.getText().toString();
                 if (senha.equals(confirmaSenha)){
-                    Toast.makeText(view.getContext(), "Vamos lhe cadastrar!", Toast.LENGTH_SHORT).show();
                     signup();
                 }else{
                     senhaText.setError("Verifique sua senha!");
