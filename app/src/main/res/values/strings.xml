@@ -7,7 +7,7 @@
     <string name="squirtle_api_endpoint_signup">/usuario</string>
     <string name="squirtle_api_endpoint_usuario">/usuario/%d</string>
     <string name="squirtle_api_endpoint_dispositivo">/dispositivo</string>
-
+    <string name="squirtle_api_endpoint_dispositivo_id">/dispositivo/%d</string>
 
 
     <!-- Strings used for fragments for navigation -->
@@ -51,12 +51,26 @@
     <string name="novodispositivo_tipo_solo">Tipo de Solo</string>
     <string name="novodispositivo_tipo_plantacao">Tipo de Plantação</string>
 
+    <!--  Link Iot  -->
+    <string name="iotlink_toolbar_title">Dados do Dispositivo</string>
 
-<!--    Tipo de Solos-->
+
+    <!--    Tipo de Solos-->
     <string-array name="novodispositivo_tipo_solo_menu">
         <item>Arenoso</item>
         <item>Argiloso</item>
         <item>Humoso</item>
         <item>Cálcario</item>
     </string-array>
+
+
+    <!--    Detalhe do Dispositivo-->
+    <string name="device_detail_toolbar_title">Dispositivo - %s</string>
+    <string name="title_activity_iot_link">IotLinkActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

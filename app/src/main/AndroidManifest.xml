@@ -5,30 +5,52 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.LOCAL_MAC_ADDRESS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/squirtle_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/squirtle_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Squirtle"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        >
+        <activity
+            android:name=".activities.IotLinkActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.DispositivoDetailsActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.NovoDispositivo"
-            android:parentActivityName=".activities.DispositivosActivity"
-            android:exported="false">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".activities.DispositivosActivity" />
+            android:exported="false"
+            android:parentActivityName=".activities.DispositivosActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.DispositivosActivity" />
         </activity>
         <activity
             android:name=".activities.ModulesActivity"
             android:exported="false" />
         <activity
             android:name=".activities.DispositivosActivity"
-            android:parentActivityName=".activities.ModulesActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".activities.ModulesActivity" />
         <activity
             android:name=".activities.MainActivity"
             android:exported="true"

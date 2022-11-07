@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.transition.TransitionInflater;
 import android.util.AttributeSet;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
@@ -25,8 +27,11 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.squirtle.R;
+import com.squirtle.activities.DispositivosActivity;
+import com.squirtle.activities.IotLinkActivity;
 import com.squirtle.activities.MainActivity;
 import com.squirtle.activities.ModulesActivity;
+import com.squirtle.activities.NovoDispositivo;
 import com.squirtle.databinding.ActivityMainBinding;
 import com.squirtle.databinding.FragmentLoginBinding;
 import com.squirtle.model.Usuario;
@@ -91,7 +96,7 @@ public class LoginFragment extends Fragment {
         senhaLayout = view.findViewById(R.id.senhaLayout);
 
         emailField.setText("teste@teste.com");
-        senhaField.setText("123");
+        senhaField.setText("teste");
         progressBar = view.findViewById(R.id.progressBar);
         tryingText = view.findViewById(R.id.tentando_login_text);
 
@@ -143,6 +148,7 @@ public class LoginFragment extends Fragment {
                     disableForm();
                 }
 
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public void onAfterExecute() {
                     if(usuarioLogado == null){
@@ -151,7 +157,8 @@ public class LoginFragment extends Fragment {
                         senhaField.setError("Verifique sua senha!");
                     }else{
                         Toast.makeText(getContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getContext(), ModulesActivity.class);
+//                        Intent intent = new Intent(getContext(), ModulesActivity.class);
+                        Intent intent = new Intent(getContext(), DispositivosActivity.class);
                         intent.putExtra("usuarioLogado", usuarioLogado);
                         startActivity(intent);
                     }

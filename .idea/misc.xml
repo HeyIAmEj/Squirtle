@@ -13,16 +13,19 @@
         <entry key="app/src/main/res/drawable/home.xml" value="0.106" />
         <entry key="app/src/main/res/drawable/ic_add_device.xml" value="0.106" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.296" />
+        <entry key="app/src/main/res/drawable/ic_success.xml" value="0.122" />
         <entry key="app/src/main/res/drawable/ic_sun.xml" value="0.106" />
         <entry key="app/src/main/res/drawable/planta.xml" value="0.217" />
         <entry key="app/src/main/res/drawable/squirtle_logo.xml" value="0.217" />
         <entry key="app/src/main/res/layout/activity_criardispositivo.xml" value="0.19010416666666666" />
+        <entry key="app/src/main/res/layout/activity_dispositivo_details.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_dispositivos.xml" value="0.17119565217391305" />
+        <entry key="app/src/main/res/layout/activity_iot_link.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="app/src/main/res/layout/activity_modules.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_novo_dispositivo.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/adapter.xml" value="0.17119565217391305" />
-        <entry key="app/src/main/res/layout/adapter_dispositivos.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/adapter_dispositivos.xml" value="0.24316546762589927" />
         <entry key="app/src/main/res/layout/content_dispositivos.xml" value="0.17119565217391305" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dropdown_menu_items.xml" value="0.1890625" />
@@ -36,6 +39,7 @@
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/menu/menu_novodispositivo_tipo_solo.xml" value="0.1890625" />
         <entry key="app/src/main/res/menu/menu_tipo_solo.xml" value="0.1890625" />
+        <entry key="app/src/main/res/xml/network_security_config.xml" value="0.13134057971014493" />
       </map>
     </option>
   </component>

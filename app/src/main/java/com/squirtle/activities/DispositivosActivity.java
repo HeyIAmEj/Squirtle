@@ -68,7 +68,7 @@ public class DispositivosActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         mRecyclerView = findViewById(R.id.lista_dispositivos);
         mRecyclerView.setLayoutManager(layoutManager);
-        dispositivosAdapter = new DispositivosAdapter(dispositivoList);
+        dispositivosAdapter = new DispositivosAdapter(dispositivoList, usuarioLogado);
 
         mRecyclerView.setAdapter(dispositivosAdapter);
         mRecyclerView.setHasFixedSize(true);
@@ -112,11 +112,11 @@ public class DispositivosActivity extends AppCompatActivity {
                                     d.setWifi_pass(jsonArray.getJSONObject(i).getString("wifi_pass"));
                                     d.settempo_bomba(jsonArray.getJSONObject(i).getString("tempo_bomba"));
                                     d.setTipo_solo(jsonArray.getJSONObject(i).getString("tipo_solo"));
-                                    d.setSensor1(jsonArray.getJSONObject(i).getString("sensor1"));
-                                    d.setSensor2(jsonArray.getJSONObject(i).getString("sensor2"));
-                                    d.setSensor3(jsonArray.getJSONObject(i).getString("sensor3"));
-                                    d.setSensor4(jsonArray.getJSONObject(i).getString("sensor4"));
-                                    d.setSensor5(jsonArray.getJSONObject(i).getString("sensor5"));
+                                    d.setSensor1(jsonArray.getJSONObject(i).getString("sensor1").equals("null") ? "0.0" : jsonArray.getJSONObject(i).getString("sensor1"));
+                                    d.setSensor2(jsonArray.getJSONObject(i).getString("sensor2").equals("null") ? "0.0" : jsonArray.getJSONObject(i).getString("sensor2"));
+                                    d.setSensor3(jsonArray.getJSONObject(i).getString("sensor3").equals("null") ? "0.0" : jsonArray.getJSONObject(i).getString("sensor3"));
+                                    d.setSensor4(jsonArray.getJSONObject(i).getString("sensor4").equals("null") ? "0.0" : jsonArray.getJSONObject(i).getString("sensor4"));
+                                    d.setSensor5(jsonArray.getJSONObject(i).getString("sensor5").equals("null") ? "0.0" : jsonArray.getJSONObject(i).getString("sensor5"));
                                     listaDispositivos.add(d);
                                 }
 

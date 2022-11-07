@@ -71,8 +71,8 @@ public class SignupFragment extends Fragment {
         nomeText.setText("teste");
         sobrenomeText.setText("teste");
         emailText.setText("teste@teste.com");
-        senhaText.setText("123");
-        senhaTextConfirm.setText("123");
+        senhaText.setText("teste");
+        senhaTextConfirm.setText("teste");
 
 
         return binding.getRoot();

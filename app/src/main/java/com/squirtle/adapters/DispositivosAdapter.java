@@ -13,7 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squirtle.R;
+import com.squirtle.activities.DispositivoDetailsActivity;
 import com.squirtle.model.Dispositivo;
+import com.squirtle.model.UsuarioLogado;
 import com.squirtle.viewholders.DispositivosViewHolder;
 
 import java.util.ArrayList;
@@ -21,10 +23,12 @@ import java.util.ArrayList;
 public class DispositivosAdapter extends RecyclerView.Adapter<DispositivosViewHolder>{
 
     ArrayList<Dispositivo> dispositivoFullList;
+    UsuarioLogado usuarioLogado;
 
 
-    public DispositivosAdapter(ArrayList<Dispositivo> dispositivoList) {
+    public DispositivosAdapter(ArrayList<Dispositivo> dispositivoList, UsuarioLogado usuarioLogado) {
         dispositivoFullList = new ArrayList<>(dispositivoList);
+        this.usuarioLogado = usuarioLogado;
     }
 
     public void updateList(Dispositivo dispositivo) {
@@ -84,11 +88,10 @@ public class DispositivosAdapter extends RecyclerView.Adapter<DispositivosViewHo
             @Override
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
-//                Intent i = new Intent(v.getContext(), DispositivoDetailsActivity.class);
-//                i.putExtra("dispositivo",dispositivoItem);
-//                v.getContext().startActivity(i);
-                Toast.makeText(v.getContext(), "Clicou no dispositivo "+dispositivoItem.getId(), Toast.LENGTH_SHORT).show();
-
+                Intent i = new Intent(v.getContext(), DispositivoDetailsActivity.class);
+                i.putExtra("dispositivo", dispositivoItem);
+                i.putExtra("usuarioLogado", usuarioLogado);
+                v.getContext().startActivity(i);
             }
         });
 

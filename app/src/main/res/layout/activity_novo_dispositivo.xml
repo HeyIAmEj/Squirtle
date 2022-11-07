@@ -24,6 +24,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,6 +35,16 @@
             android:layout_height="match_parent"
             android:orientation="vertical" >
 
+            <TextView
+                android:id="@+id/wifi_alert"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="10dp"
+                android:text="Você deve se conectar ao Access Point Squirtle!"
+                android:gravity="center_horizontal"
+                android:textColor="#FF0000"
+                android:textStyle="bold" />
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -177,5 +188,4 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
