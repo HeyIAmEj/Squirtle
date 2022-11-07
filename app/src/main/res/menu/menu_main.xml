@@ -3,8 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.squirtle.activities.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_update_device"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Atualizar Dispositivo"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_remove_device"
+        android:orderInCategory="100"
+        android:title="Remover Dispositivo"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_send_device"
+        android:orderInCategory="100"
+        android:enabled="false"
+        android:title="Enviar para Dispositivo"
         app:showAsAction="never" />
 </menu>

@@ -45,6 +45,14 @@
                 android:value=".activities.DispositivosActivity" />
         </activity>
         <activity
+            android:name=".activities.AtualizarDispositivo"
+            android:exported="false"
+            android:parentActivityName=".activities.DispositivosActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.DispositivoDetailsActivity" />
+        </activity>
+        <activity
             android:name=".activities.ModulesActivity"
             android:exported="false" />
         <activity

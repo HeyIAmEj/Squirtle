@@ -3,7 +3,9 @@ package com.squirtle.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -215,13 +217,23 @@ public class DispositivoDetailsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             System.out.println("Pausando timer de consultas");
-
-            myTimer.cancel();
-            myTask.cancel();
             onBackPressed();
-            return true;
+        } else if (item.getItemId() == R.id.action_update_device) {
+            System.out.println("Update device");
+            Toast.makeText(this, "Update device", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), AtualizarDispositivo.class);
+            intent.putExtra("usuarioLogado", usuarioLogado);
+            intent.putExtra("dispositivo", dispositivoSelecionado);
+            startActivity(intent);
+        }else if (item.getItemId() == R.id.action_remove_device) {
+            Toast.makeText(this, "Remove device", Toast.LENGTH_SHORT).show();
+        }else if (item.getItemId() == R.id.action_send_device) {
+            Toast.makeText(this, "Remove device", Toast.LENGTH_SHORT).show();
         }
+        myTimer.cancel();
+        myTask.cancel();
         return super.onOptionsItemSelected(item);
+
     }
 
     @Override
@@ -248,5 +260,11 @@ public class DispositivoDetailsActivity extends AppCompatActivity {
         runTimer();
 
         super.onResume();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 }

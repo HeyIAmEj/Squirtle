@@ -1,16 +1,6 @@
 package com.squirtle.activities;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
-import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,6 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.slider.Slider;
 import com.google.android.material.switchmaterial.SwitchMaterial;
@@ -36,8 +30,9 @@ import java.net.URL;
 import mobi.stos.httplib.HttpAsync;
 import mobi.stos.httplib.inter.FutureCallback;
 
-public class NovoDispositivo extends AppCompatActivity {
+public class AtualizarDispositivo extends AppCompatActivity {
     UsuarioLogado usuarioLogado;
+    Dispositivo dispositivo;
 
     private AutoCompleteTextView autoCompleteTextView;
     private Button submitDevice;
@@ -51,8 +46,9 @@ public class NovoDispositivo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Bundle extras = getIntent().getExtras();
         usuarioLogado = (UsuarioLogado) extras.get("usuarioLogado");
+        dispositivo = (Dispositivo) extras.get("dispositivo");
 
-        setContentView(R.layout.activity_novo_dispositivo);
+        setContentView(R.layout.activity_atualizar_dispositivo);
         setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
@@ -71,7 +67,6 @@ public class NovoDispositivo extends AppCompatActivity {
         descricaoText.setText("descricaoteste");
         wifi_ssid_text.setText("wifiteste");
         wifi_pass_text.setText("senhateste");
-        time_slider.setValue(50);
     }
 
     public void findViews(){
@@ -80,17 +75,10 @@ public class NovoDispositivo extends AppCompatActivity {
         switch_status = findViewById(R.id.switch_status);
         wifi_ssid_text = findViewById(R.id.wifi_ssid_text);
         wifi_pass_text = findViewById(R.id.wifi_pass_text);
-        time_slider = findViewById(R.id.time_slider);
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
 
         submitDevice = findViewById(R.id.submitDevice);
 
-        submitDevice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                postDevice();
-            }
-        });
     }
 
     public void postDevice(){
