@@ -30,6 +30,7 @@ import com.google.android.material.button.MaterialButton;
 import com.squirtle.R;
 import com.squirtle.model.Dispositivo;
 import com.squirtle.model.UsuarioLogado;
+import com.squirtle.utils.LogoutUtils;
 
 import org.json.JSONObject;
 
@@ -246,12 +247,14 @@ public class IotLinkActivity extends AppCompatActivity {
                             System.out.println();
                             break;
                         case 409:
+                            LogoutUtils.logout(getApplicationContext());
                             // usuario com id já cadastrado
-                            Toast.makeText(getApplicationContext(), "Erro conflito", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getApplicationContext(), "Erro conflito", Toast.LENGTH_SHORT).show();
                             System.out.println(object);
                             break;
                         default:
-                            Toast.makeText(getApplicationContext(), "Response code não tratado", Toast.LENGTH_SHORT).show();
+                            LogoutUtils.logout(getApplicationContext());
+//                            Toast.makeText(getApplicationContext(), "Response code não tratado", Toast.LENGTH_SHORT).show();
                             System.out.println(object);
                             break;
                     }
@@ -259,7 +262,8 @@ public class IotLinkActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Exception exception) {
-                    Toast.makeText(getApplicationContext(), "Falha no request", Toast.LENGTH_SHORT).show();
+                    LogoutUtils.logout(getApplicationContext());
+//                    Toast.makeText(getApplicationContext(), "Falha no request", Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -320,11 +324,13 @@ public class IotLinkActivity extends AppCompatActivity {
                             break;
                         case 409:
                             // usuario com id já cadastrado
-                            Toast.makeText(getApplicationContext(), "Erro conflito", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getApplicationContext(), "Erro conflito", Toast.LENGTH_SHORT).show();
+                            LogoutUtils.logout(getApplicationContext());
                             System.out.println(object);
                             break;
                         default:
-                            Toast.makeText(getApplicationContext(), "Response code não tratado", Toast.LENGTH_SHORT).show();
+                            LogoutUtils.logout(getApplicationContext());
+//                            Toast.makeText(getApplicationContext(), "Response code não tratado", Toast.LENGTH_SHORT).show();
                             System.out.println(object);
                             break;
                     }
@@ -332,7 +338,8 @@ public class IotLinkActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Exception exception) {
-                    Toast.makeText(getApplicationContext(), "Falha no request", Toast.LENGTH_SHORT).show();
+                    LogoutUtils.logout(getApplicationContext());
+//                    Toast.makeText(getApplicationContext(), "Falha no request", Toast.LENGTH_SHORT).show();
                 }
             });
 

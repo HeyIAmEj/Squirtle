@@ -26,6 +26,7 @@ import com.squirtle.databinding.ActivityMainBinding;
 import com.squirtle.model.Dispositivo;
 import com.squirtle.model.UsuarioLogado;
 import com.squirtle.utils.JWTUtils;
+import com.squirtle.utils.LogoutUtils;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -74,6 +75,12 @@ public class DispositivosActivity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getMeusDispositivos();
+    }
+
     public void getMeusDispositivos(){
         ArrayList<Dispositivo> listaDispositivos = new ArrayList();
         try {
@@ -110,7 +117,6 @@ public class DispositivosActivity extends AppCompatActivity {
                                     d.setIcone(jsonArray.getJSONObject(i).getString("icone"));
                                     d.setWifi_ssid(jsonArray.getJSONObject(i).getString("wifi_ssid"));
                                     d.setWifi_pass(jsonArray.getJSONObject(i).getString("wifi_pass"));
-                                    d.settempo_bomba(jsonArray.getJSONObject(i).getString("tempo_bomba"));
                                     d.setTipo_solo(jsonArray.getJSONObject(i).getString("tipo_solo"));
                                     d.setSensor1(jsonArray.getJSONObject(i).getString("sensor1").equals("null") ? "0.0" : jsonArray.getJSONObject(i).getString("sensor1"));
                                     d.setSensor2(jsonArray.getJSONObject(i).getString("sensor2").equals("null") ? "0.0" : jsonArray.getJSONObject(i).getString("sensor2"));
@@ -127,14 +133,16 @@ public class DispositivosActivity extends AppCompatActivity {
                             System.out.println();
                             break;
                         default:
-                            Toast.makeText(getApplicationContext(), "Response code não tratado", Toast.LENGTH_SHORT).show();
+                            LogoutUtils.logout(getApplicationContext());
+//                            Toast.makeText(getApplicationContext(), "Response code não tratado", Toast.LENGTH_SHORT).show();
                             break;
                     }
                 }
 
                 @Override
                 public void onFailure(Exception exception) {
-                    Toast.makeText(getApplicationContext(), "Falha no request", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(), "Falha no request", Toast.LENGTH_SHORT).show();
+                    LogoutUtils.logout(getApplicationContext());
                 }
             });
 

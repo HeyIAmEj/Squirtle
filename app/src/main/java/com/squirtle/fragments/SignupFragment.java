@@ -22,6 +22,7 @@ import com.squirtle.R;
 import com.squirtle.activities.MainActivity;
 import com.squirtle.databinding.FragmentSignupBinding;
 import com.squirtle.utils.JWTUtils;
+import com.squirtle.utils.LogoutUtils;
 
 import org.json.JSONObject;
 
@@ -122,16 +123,6 @@ public class SignupFragment extends Fragment {
 
                 @Override
                 public void onAfterExecute() {
-//                    if(usuarioLogado == null){
-//                        Toast.makeText(getContext(), "Usuário não encontrado!", Toast.LENGTH_SHORT).show();
-//                        emailField.setError("Verifique seu email!");
-//                        senhaField.setError("Verifique sua senha!");
-//                    }else{
-//                        Toast.makeText(getContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(getContext(), ModulesActivity.class);
-//                        intent.putExtra("usuarioLogado", usuarioLogado);
-//                        startActivity(intent);
-//                    }
                     Toast.makeText(getContext(), "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getContext(), MainActivity.class);
                     startActivity(intent);
@@ -154,14 +145,16 @@ public class SignupFragment extends Fragment {
                             // usuario com id já cadastrado
                             break;
                         default:
-                            Toast.makeText(getContext(), "Response code não tratado", Toast.LENGTH_SHORT).show();
+                            LogoutUtils.logout(getContext());
+//                            Toast.makeText(getContext(), "Response code não tratado", Toast.LENGTH_SHORT).show();
                             break;
                     }
                 }
 
                 @Override
                 public void onFailure(Exception exception) {
-                    Toast.makeText(getContext(), "Falha no request", Toast.LENGTH_SHORT).show();
+                    LogoutUtils.logout(getContext());
+//                    Toast.makeText(getContext(), "Falha no request", Toast.LENGTH_SHORT).show();
                 }
             });
 

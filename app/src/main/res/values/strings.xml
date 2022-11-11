@@ -51,6 +51,9 @@
     <string name="novodispositivo_tipo_solo">Tipo de Solo</string>
     <string name="novodispositivo_tipo_plantacao">Tipo de Plantação</string>
 
+    <!--  Atualizar Dispositivo  -->
+    <string name="atualizardispositivo_toolbar_title">Atualizar Dispositivo</string>
+
     <!--  Link Iot  -->
     <string name="iotlink_toolbar_title">Dados do Dispositivo</string>
 

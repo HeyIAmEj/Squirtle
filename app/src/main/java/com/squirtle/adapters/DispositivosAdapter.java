@@ -16,6 +16,7 @@ import com.squirtle.R;
 import com.squirtle.activities.DispositivoDetailsActivity;
 import com.squirtle.model.Dispositivo;
 import com.squirtle.model.UsuarioLogado;
+import com.squirtle.utils.GeneralUtils;
 import com.squirtle.viewholders.DispositivosViewHolder;
 
 import java.util.ArrayList;
@@ -58,30 +59,7 @@ public class DispositivosAdapter extends RecyclerView.Adapter<DispositivosViewHo
         holder.dispositivo_nome.setText(String.format("%s", dispositivoItem.getNome()));
         holder.dispositivo_status.setText(String.format("%s", dispositivoItem.getStatus()));
         holder.dispositivo_descricao.setText(String.format("%s", dispositivoItem.getDescricao()));
-        int icon;
-        switch (dispositivoItem.getIcone()){
-            case "sun":
-                icon = R.drawable.ic_sun;
-                break;
-            case "moon":
-                icon = R.drawable.ic_moon;
-                break;
-            case "ice":
-                icon = R.drawable.ic_ice;
-                break;
-            case "cloud":
-                icon = R.drawable.ic_cloud;
-                break;
-            case "leaf":
-                icon = R.drawable.ic_leaf;
-                break;
-            case "plant":
-                icon = R.drawable.ic_plant;
-                break;
-            default:
-                icon = R.drawable.ic_device;
-                break;
-        }
+        int icon = GeneralUtils.get_icon(dispositivoItem.getIcone());
         holder.dispositivo_icon.setImageResource(icon);
 
         holder.dispositivo_view.setOnClickListener(new View.OnClickListener() {

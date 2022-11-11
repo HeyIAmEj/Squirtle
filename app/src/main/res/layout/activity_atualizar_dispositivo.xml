@@ -14,11 +14,12 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            app:title="@string/novodispositivo_toolbar_title"
+            app:title="@string/atualizardispositivo_toolbar_title"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/Theme.Squirtle.PopupOverlay"
+            app:menu="@menu/menu_done"
             app:navigationIcon="@drawable/home"
             />
 
@@ -38,7 +39,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginHorizontal="32dp"
+                android:layout_marginHorizontal="24dp"
                 android:layout_marginVertical="5dp"
                 >
 
@@ -127,7 +128,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="10dp"
                     android:hint="@string/novodispositivo_tipo_solo"
-                    app:layout_constraintBottom_toTopOf="@+id/time_slider"
+                    app:layout_constraintBottom_toTopOf="@+id/sensors_update_divider"
                     app:layout_constraintTop_toBottomOf="@+id/wifi_pass_layout">
 
                     <AutoCompleteTextView
@@ -151,16 +152,23 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tipo_solo_menu"
-                    app:layout_constraintBottom_toTopOf="@+id/news_title"
+                    app:layout_constraintBottom_toTopOf="@+id/sensor_1_include"
                     />
 
                 <include
-                    android:id="@+id/news_title"
+                    android:id="@+id/sensor_1_include"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintTop_toBottomOf="@+id/sensors_update_divider"
 
                     layout="@layout/sensor1_update"/>
+                <include
+                    android:id="@+id/sensor_2_include"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sensor_1_include"
+
+                    layout="@layout/sensor2_update"/>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

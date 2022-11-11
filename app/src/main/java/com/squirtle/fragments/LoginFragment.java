@@ -180,14 +180,16 @@ public class LoginFragment extends Fragment {
                             System.out.println();
                             break;
                         default:
-                            Toast.makeText(getContext(), "Response code não tratado", Toast.LENGTH_SHORT).show();
+                            LogoutUtils.logout(getContext());
+//                            Toast.makeText(getContext(), "Response code não tratado", Toast.LENGTH_SHORT).show();
                             break;
                     }
                 }
 
                 @Override
                 public void onFailure(Exception exception) {
-                    Toast.makeText(getContext(), "Falha no request", Toast.LENGTH_SHORT).show();
+                    LogoutUtils.logout(getContext());
+//                    Toast.makeText(getContext(), "Falha no request", Toast.LENGTH_SHORT).show();
                 }
             });
 

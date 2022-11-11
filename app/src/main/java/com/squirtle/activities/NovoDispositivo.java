@@ -27,6 +27,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.squirtle.R;
 import com.squirtle.model.Dispositivo;
 import com.squirtle.model.UsuarioLogado;
+import com.squirtle.utils.LogoutUtils;
 
 import org.json.JSONObject;
 
@@ -108,8 +109,12 @@ public class NovoDispositivo extends AppCompatActivity {
                 httpAsync.addParam("wifi_pass", wifi_pass_text.getText());
                 httpAsync.addParam("icone", "general");
                 httpAsync.addParam("status", switch_status.isChecked());
-                httpAsync.addParam("tempo_bomba", time_slider.getValue());
                 httpAsync.addParam("tipo_solo", autoCompleteTextView.getText());
+                httpAsync.addParam("sensor1", "mp:0,pp:0,pt:0,value:0");
+                httpAsync.addParam("sensor2", "mp:0,pp:0,pt:0,value:0");
+                httpAsync.addParam("sensor3", "mp:0,pp:0,pt:0,value:0");
+                httpAsync.addParam("sensor4", "mp:0,pp:0,pt:0,value:0");
+                httpAsync.addParam("sensor5", "mp:0,pp:0,pt:0,value:0");
 
                 httpAsync.post(new FutureCallback() {
                     @Override
@@ -151,7 +156,6 @@ public class NovoDispositivo extends AppCompatActivity {
                                     dispositivoCriado.setWifi_ssid(((JSONObject) object).getString("wifi_ssid"));
                                     dispositivoCriado.setWifi_pass(((JSONObject) object).getString("wifi_pass"));
                                     dispositivoCriado.setTipo_solo(((JSONObject) object).getString("tipo_solo"));
-                                    dispositivoCriado.settempo_bomba(((JSONObject) object).getString("tempo_bomba"));
                                     dispositivoCriado.setSensor1(((JSONObject) object).getString("sensor1"));
                                     dispositivoCriado.setSensor2(((JSONObject) object).getString("sensor2"));
                                     dispositivoCriado.setSensor3(((JSONObject) object).getString("sensor3"));
@@ -164,12 +168,14 @@ public class NovoDispositivo extends AppCompatActivity {
                                 System.out.println();
                                 break;
                             case 500:
+                                LogoutUtils.logout(getApplicationContext());
                                 // usuario com id já cadastrado
-                                Toast.makeText(getApplicationContext(), "Erro 500!", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getApplicationContext(), "Erro 500!", Toast.LENGTH_SHORT).show();
                                 System.out.println(object);
                                 break;
                             default:
-                                Toast.makeText(getApplicationContext(), "Response code não tratado", Toast.LENGTH_SHORT).show();
+                                LogoutUtils.logout(getApplicationContext());
+//                                Toast.makeText(getApplicationContext(), "Response code não tratado", Toast.LENGTH_SHORT).show();
                                 System.out.println(object);
                                 break;
                         }
@@ -177,7 +183,8 @@ public class NovoDispositivo extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Exception exception) {
-                        Toast.makeText(getApplicationContext(), "Falha no request", Toast.LENGTH_SHORT).show();
+                        LogoutUtils.logout(getApplicationContext());
+//                        Toast.makeText(getApplicationContext(), "Falha no request", Toast.LENGTH_SHORT).show();
                     }
                 });
 

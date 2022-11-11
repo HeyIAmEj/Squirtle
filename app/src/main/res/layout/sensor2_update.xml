@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="5dp"
+    app:layout_constraintTop_toBottomOf="@+id/sensors_update_divider"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_sensor2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        android:paddingVertical="20dp"
+        android:text="Sensor 2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_sensor2_mp"
+        />
+
+    <TextView
+        android:id="@+id/tv_sensor2_mp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ponto máximo (calibragem 0 - 4096)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/sensor2_mp"
+
+        />
+    <com.google.android.material.slider.Slider
+        android:id="@+id/sensor2_mp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:valueFrom="0"
+        android:valueTo="4096"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sensor2_mp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_sensor2_pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tempo da Bomba (s)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sensor2_mp"
+
+        />
+    <com.google.android.material.slider.Slider
+        android:id="@+id/sensor2_pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:valueFrom="0"
+        android:valueTo="3600"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sensor2_pt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_sensor2_pp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Umidade para acionamento da Bomba (%)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sensor2_pt"
+
+        />
+    <com.google.android.material.slider.Slider
+        android:id="@+id/sensor2_pp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:valueFrom="0"
+        android:valueTo="100"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sensor2_pp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
