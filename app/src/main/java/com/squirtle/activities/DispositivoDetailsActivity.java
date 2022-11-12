@@ -1,9 +1,11 @@
 package com.squirtle.activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -156,8 +158,11 @@ public class DispositivoDetailsActivity extends AppCompatActivity {
                 "Os usuários que possuem esse dispositivo vinculado, também não terão mais acesso!",
                 "Deletar", "Cancelar", new CustomCallback() {
                     @Override
-                    public void onCallback() {
+                    public void onTrueCallback() {
                         removeDevice();
+                    }
+                    @Override
+                    public void onFalseCallback() {
                     }
                 });
     }
@@ -289,6 +294,7 @@ public class DispositivoDetailsActivity extends AppCompatActivity {
         return String.format("Valor: %s - MP: %s - PP: %s %% - PT: %s segundos", dispositivo.getValue5(), dispositivo.getMp5(), dispositivo.getPp5(), dispositivo.getPt5());
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -308,9 +314,13 @@ public class DispositivoDetailsActivity extends AppCompatActivity {
         }else if (item.getItemId() == R.id.action_remove_device) {
             alertRemovingDevice();
         }else if (item.getItemId() == R.id.action_send_device) {
-            Toast.makeText(this, "Remove device", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Remove device", Toast.LENGTH_SHORT).show();
             myTimer.cancel();
             myTask.cancel();
+            Intent intent = new Intent(getApplicationContext(), IotLinkActivity.class);
+            intent.putExtra("usuarioLogado", usuarioLogado);
+            intent.putExtra("dispositivo", dispositivoSelecionado);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

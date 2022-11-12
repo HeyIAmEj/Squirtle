@@ -24,6 +24,8 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.squirtle.R;
 import com.squirtle.model.Dispositivo;
 import com.squirtle.model.UsuarioLogado;
+import com.squirtle.utils.CustomCallback;
+import com.squirtle.utils.GeneralUtils;
 import com.squirtle.utils.LogoutUtils;
 
 import org.json.JSONObject;
@@ -151,6 +153,27 @@ public class AtualizarDispositivo extends AppCompatActivity {
     }
 
 
+    public void alertLinkDevice(){
+        GeneralUtils.alert(AtualizarDispositivo.this,
+                String.format("Vínculo com o dispositivo"),
+                "Deseja enviar a nova calibragem para o dispositivo?",
+                "Sim", "Não", new CustomCallback() {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
+                    @Override
+                    public void onTrueCallback() {
+                        Intent intent = new Intent(getApplicationContext(), IotLinkActivity.class);
+                        intent.putExtra("usuarioLogado", usuarioLogado);
+                        intent.putExtra("dispositivo", dispositivo);
+                        startActivity(intent);
+                    }
+                    @Override
+                    public void onFalseCallback() {
+                        backToDeviceList();
+                    }
+                });
+    }
+
+
     public void putDevice(){
         Dispositivo dispositivoCriado = new Dispositivo();
         try {
@@ -188,13 +211,12 @@ public class AtualizarDispositivo extends AppCompatActivity {
                     enableForm();
 
                     if(dispositivoCriado != null){
+                        dispositivo = dispositivoCriado;
                         Toast.makeText(getApplicationContext(), "Dispositivo atualizado com sucesso!", Toast.LENGTH_SHORT).show();
-                        backToDeviceDetail(dispositivoCriado);
                     }else{
                         Toast.makeText(getApplicationContext(), "Não foi possível atualizar seu dispositivo! ", Toast.LENGTH_SHORT).show();
-                        backToDeviceList();
                     }
-
+                    alertLinkDevice();
                 }
 
                 @Override
@@ -253,6 +275,7 @@ public class AtualizarDispositivo extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), DispositivosActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("usuarioLogado", usuarioLogado);
+        intent.putExtra("dispositivo", dispositivo);
         startActivity(intent);
     }
     public void backToDeviceDetail(Dispositivo dispositivoCriado){

@@ -15,7 +15,6 @@
     <item
         android:id="@+id/action_send_device"
         android:orderInCategory="100"
-        android:enabled="false"
         android:title="Enviar para Dispositivo"
         app:showAsAction="never" />
 </menu>

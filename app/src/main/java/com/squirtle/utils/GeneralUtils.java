@@ -45,7 +45,7 @@ public class GeneralUtils {
             dialog.setCanceledOnTouchOutside(true);
             dialog.setButton(DialogInterface.BUTTON_NEGATIVE, button_ok, (dialog13, which) -> {
                 if (callback != null) {
-                    callback.onCallback();
+                    callback.onTrueCallback();
                 }
                 dialog13.dismiss();
                 if (!dialog.isShowing()) {
@@ -53,7 +53,13 @@ public class GeneralUtils {
                 }
             });
             dialog.setButton(DialogInterface.BUTTON_POSITIVE, button_cancel, (dialog1, which) -> {
-                dialog.dismiss();
+                if (callback != null) {
+                    callback.onFalseCallback();
+                }
+                dialog1.dismiss();
+                if (!dialog.isShowing()) {
+                    dialog.dismiss();
+                }
             });
 
             if (!dialog.isShowing()) {
